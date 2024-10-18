@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleesha Arooj - Developer Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Your existing CSS here */
+
+        
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2a7474;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.background-icons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.1;
+}
+
+.background-icon {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0;
+}
+
+.dropdown {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background-color: #1a5555;
+    border-radius: 5px;
+    padding: 10px 0;
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown.show {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown a:hover {
+    background-color: #154444;
+}
+
+#about {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+#about h1 {
+    color: #2a7474;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+h1 {
+    color: #f0db4f;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.intro {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 1.1rem;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    font-weight: 500px;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.column {
+    width: 48%;
+    margin-right: 40px;
+    margin-right: 40px;
+}
+
+.skill {
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #f0db4f;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.buttons {
+    margin-top: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #2a7474;
+    border: 1px solid #2a7474;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2a7474;
+    color: #fff;
+}
+
+.btn-dark {
+    background-color: #2a7474;
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background-color: #fff;
+    color: #2a7474;
+}
+
+        
+        /* Additional CSS for new sections */
+        #projects {
+            background-color: #2a7474;
+            padding: 50px 0;
+        }
+        
+        .project-card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        #testimonials {
+            background-color: #ffffff;
+            color: black;
+            padding: 50px 0;
+            border: #333333;
+            
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            border: #333333;
+              transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+  
+    
+
+    .testimonial-card.animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .testimonial-card {
+            transition: none;
+        }
+    }
+        
+        #contact {
+            padding: 50px 0;
+        }
+        
+        .contact-info {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- Existing hero section -->
+        <section class="hero">
+            <div class="background-icons" id="backgroundIcons"></div>
+            <div class="container">
+                <header>
+                    <div class="menu-icon" id="menuToggle">☰</div>
+                    <div class="logo">Aleesha Arooj</div>
+                </header>
+                <div class="dropdown" id="dropdown">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Services</a>
+                    <a href="#">Contact</a>
+                </div>
+                <main>
+                    <section class="hero">
+                        <h2>HELLO, WORLD.</h2>
+                        <h1>I'm Aleesha Arooj.</h1>
+                        <p>HELLO I AM FREELANCE FULL STACK WEB DEVELOPER IN PAKISTAN .<br>WELCOME TO MY PORTFOLIO !</p>
+                        <a href="#" class="cta-button">MORE ABOUT ME ▼</a>
+                    </section>
+                </main>
+            </div>
+        </section>
+
+        <!-- Existing about section -->
+        <section id="about" class="container-fluid">
+            <h1>ABOUT</h1>
+            <h2>Let me introduce myself.</h2>
+            <img src="  " alt="Profile Picture" class="profile-img">
+            <p class="intro">
+                Hi there! I am a Fullstack developer (MERN). I have 2 years of development experience building fullstack products from scratch, developing and integrating APIs, working with a variety of databases.
+            </p>
+            <div class="columns">
+                <div class="column">
+                    <h3>PROFILE</h3>
+                    <p><strong>FULLNAME:</strong><br>Aleesha Arooj</p>
+                    <p><strong>BIRTH DATE:</strong><br>August 27, 2002</p>
+                    <p><strong>JOB:</strong><br>FRONTEND Developer, Node.js Developer</p>
+                    <p><strong>WEBSITE:</strong><br>www.samplexyz.com</p>
+                    <p><strong>EMAIL:</strong><br>xyz.com</p>
+                </div>
+                <div class="column">
+                    <h3>SKILLS</h3>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>HTML5</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>CSS3</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>JQUERY</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>PHP</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="87"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">
+                            <span>NODE.JS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <a href="#" class="btn">HIRE ME</a>
+                <a href="#" class="btn btn-dark">DOWNLOAD CV</a>
+            </div>
+        </section>
+
+        <!-- New Projects section -->
+        <section id="projects" class="container-fluid">
+            <h2 class="text-center mb-5">My Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 1</h5>
+                            <p class="card-text">A brief description of Project 1 and the technologies used.</p>
+                            <a href="#" class="btn " style="color: #ffffff; background-color: #f0db4f;">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 2</h5>
+                            <p class="card-text">A brief description of Project 2 and the technologies used.</p>
+                            <a href="#" class="btn " style="color: #ffffff; background-color: #f0db4f;">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 3</h5>
+                            <p class="card-text">A brief description of Project 3 and the technologies used.</p>
+                            <a href="#" class="btn " style="color: #ffffff; background-color: #f0db4f;">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Testimonials section -->
+       <section id="testimonials" class="container-fluid">
+    <h2 class="text-center mb-5" style="font-size: 2rem; font-weight: 600;">What Clients Say</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="testimonial-card">
+                <p>"Aleesha is an exceptional developer. Her work exceeded our expectations!"</p>
+                <footer>- John Doe, CEO of TechCorp</footer>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="testimonial-card">
+                <p>"Working with Aleesha was a pleasure. She delivered the project on time and with great quality."</p>
+                <footer>- Jane Smith, Project Manager</footer>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="testimonial-card">
+                <p>"Aleesha's technical skills and creativity make her stand out. Highly recommended!"</p>
+                <footer>- Mike Johnson, Startup Founder</footer>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- New Contact section -->
+        <section id="contact" class="container">
+            <h2 class="text-center mb-5">Get In Touch</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="color:#2a7474; background-color: #f0db4f;">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-envelope"></i> xyz@example.com</p>
+                        <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-github"></i></a>
+                            <a href="#" class="btn btn-outline-dark"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Your existing JavaScript here
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const heroElements = document.querySelectorAll('.hero h2, .hero h1, .hero p, .hero .cta-button');
+    heroElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+
+    const backgroundIcons = document.getElementById('backgroundIcons');
+    const icons = ['💻', '🖥️', '📱', '⌨️', '🖱️', '🔌', '💾', '📡'];
+    for (let i = 0; i < 50; i++) {
+        const icon = document.createElement('div');
+        icon.className = 'background-icon';
+        icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+        icon.style.left = `${Math.random() * 100}%`;
+        icon.style.top = `${Math.random() * 100}%`;
+        icon.style.transform = `rotate(${Math.random() * 360}deg)`;
+        backgroundIcons.appendChild(icon);
+
+        setTimeout(() => {
+            icon.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            icon.style.opacity = '1';
+            icon.style.transform += ' scale(1)';
+        }, i * 50);
+    }
+
+    // Toggle dropdown functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const dropdown = document.getElementById('dropdown');
+
+    menuToggle.addEventListener('click', () => {
+        dropdown.classList.toggle('show');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!menuToggle.contains(event.target) && !dropdown.contains(event.target)) {
+            dropdown.classList.remove('show');
+        }
+    });
+});
+//
+document.addEventListener('DOMContentLoaded', () => {
+    const progressBars = document.querySelectorAll('.progress');
+    progressBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+            bar.style.width = `${width}%`;
+        }, 500);
+    });
+});
+
+        // Additional JavaScript for animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Animate testimonials
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            testimonials.forEach((testimonial, index) => {
+                setTimeout(() => {
+                    testimonial.style.opacity = '1';
+                    testimonial.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    
+    const animateTestimonials = () => {
+        testimonials.forEach((testimonial, index) => {
+            const rect = testimonial.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (rect.top <= viewportHeight * 0.75 && rect.bottom >= 0) {
+                setTimeout(() => {
+                    testimonial.classList.add('animate');
+                }, index * 200);
+            }
+        });
+    };
+
+    // Initial check on load
+    animateTestimonials();
+
+    // Check on scroll
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(animateTestimonials);
+    });
+
+    // Accessibility: Pause animations when tab key is used
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab') {
+            document.body.classList.add('user-is-tabbing');
+        }
+    });
+
+    document.addEventListener('mousedown', () => {
+        document.body.classList.remove('user-is-tabbing');
+    });
+});
+    </script>
+</body>
+
+</html>
